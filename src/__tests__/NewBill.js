@@ -43,9 +43,9 @@ describe("Given I am connected as an employee", () => {
     })
 
 
-    describe("When a file is uploaded in not accepted format (other than jpeg, jpg, png)", () => {
+    describe("When a file is uploaded in accepted format  jpeg, jpg, png)", () => {
 
-      test("Then no bill should be created", () => {
+      test("Then file should be updated after uploaded", () => {
 
         document.body.innerHTML = NewBillUI()
 
