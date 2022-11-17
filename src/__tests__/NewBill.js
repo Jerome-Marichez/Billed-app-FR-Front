@@ -9,7 +9,7 @@ import "@testing-library/jest-dom"
 import router from "../app/Router.js"
 import { ROUTES, ROUTES_PATH } from "../constants/routes.js"
 import { localStorageMock } from "../__mocks__/localStorage.js"
-import storeMock from '../__mocks__/store.js'
+import mockStore from '../__mocks__/store.js'
 
 
 
@@ -50,7 +50,7 @@ describe("Given I am connected as an employee", () => {
         document.body.innerHTML = NewBillUI()
 
 
-        const newBill = new NewBill({ document, onNavigate, store: storeMock, localStorage: window.localStorage })
+        const newBill = new NewBill({ document, onNavigate, store: mockStore, localStorage: window.localStorage })
 
         const handleChangeFile = jest.spyOn(newBill, 'handleChangeFile')
 
@@ -75,7 +75,7 @@ describe("Given I am connected as an employee", () => {
 
         document.body.innerHTML = NewBillUI()
 
-        const newBill = new NewBill({ document, onNavigate, store: storeMock, localStorage: window.localStorage })
+        const newBill = new NewBill({ document, onNavigate, store: mockStore, localStorage: window.localStorage })
 
         const updateBill = jest.spyOn(newBill, 'updateBill')
 
@@ -92,7 +92,7 @@ describe("Given I am connected as an employee", () => {
       test("Then handleSubmit function should be called", () => {
 
         document.body.innerHTML = NewBillUI()
-        const newBill = new NewBill({ document, onNavigate, store: storeMock, localStorage: window.localStorage })
+        const newBill = new NewBill({ document, onNavigate, store: mockStore, localStorage: window.localStorage })
 
         const formNewBill = screen.getByTestId('form-new-bill')
         const handleSubmit = jest.spyOn(newBill, 'handleSubmit')
@@ -111,7 +111,7 @@ describe("Given I am connected as an employee", () => {
 
       test('Then a new bill is generated', async () => {
 
-        const storeSpy = jest.spyOn(storeMock, "bills")
+        const storeSpy = jest.spyOn(mockStore, "bills")
 
         const newBill = {
           "id": "X2w33aqa96e6s2v2696z6f2",
